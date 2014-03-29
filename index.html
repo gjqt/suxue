@@ -1,79 +1,108 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
+<head>
+  <meta charset="utf-8">
+  <title>2048苏雪版</title>
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Suxue : 屠苏、晴雪特别版" />
+  <link href="stylesheets/main.css" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+  <meta property="og:title" content="2048 game"/>
+  <meta property="og:site_name" content="2048 game"/>
+  
+  <!--[if lte IE 8]>
+	<script src="javascripts/audio5.min.js"></script>
+  <![endif]-->
+</head>
+<body>
 
-    <title>Suxue</title>
-  </head>
+  <audio id="audio_player1" src="bgm/bgm1.mp3">
+  </audio>
+  <audio id="audio_player2" src="bgm/bgm2.mp3">
+  </audio> 
+  
+  <div class="container">
 
-  <body>
+    <p>自古二上市以来，古一渐渐淡出人们的视野，谨以此版纪念曾经的苏雪……</p>
+  
+    <div class="heading">
+      <h2 class="title">2048苏雪版</h2>
+      <div class="scores-container">
+        <div class="score-container">0</div>
+        <div class="best-container">0</div>
+      </div>
+    </div>
+    <p class="game-intro">合并图片，进入新的场景</p>
+    <div class="game-container">
+      <div class="game-message">
+        <p style="color: #BB4A00"></p>
+        <div class="lower">
+          <a class="retry-button">轮回</a>
+          <div class="score-sharing"></div>
+        </div>
+      </div>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/gjqt/suxue">View on GitHub</a>
+      <div class="grid-container">
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+      </div>
 
-          <h1 id="project_title">Suxue</h1>
-          <h2 id="project_tagline">屠苏、晴雪特别版</h2>
+      <div class="tile-container">
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/gjqt/suxue/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/gjqt/suxue/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
+      </div>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+    <p class="game-explanation">
+      <strong class="important">规则:</strong> 使用 <strong>上下左右键</strong> 移动方块（触屏设备请直接滑动手指），相同的两个图片合并后会变成新的图片。
+    </p><br>
+   
+    <p>2048其他古剑版本：</p>
+	<p>古剑奇谭二版：<a href="http://gjqt2.github.io">http://gjqt2.github.io</a></p>
+    <p>古剑奇谭武器版：<a href="http://bjdc.github.io">http://bjdc.github.io</a></p>
+    <p>历代主要人物(图片模式)版：<br><a href="http://gjqt.github.io/mainRole">http://gjqt.github.io/mainRole</a></p><br>
+	<p>有问题或者建议可以联系 <a href="http://weibo.com/bjdc" target="_blank">拔剑断愁</a></p>
+  </div>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+  <script src="javascripts/animframe_polyfill.js"></script>
+  <script src="javascripts/keyboard_input_manager.js"></script>
+  <script src="javascripts/html_actuator.js"></script>
+  <script src="javascripts/grid.js"></script>
+  <script src="javascripts/tile.js"></script>
+  <script src="javascripts/local_score_manager.js"></script>
+  <script src="javascripts/game_manager.js"></script>
+  <script src="javascripts/application.js"></script>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F0e3c8d0a687bea8b39440e15b88cb974' type='text/javascript'%3E%3C/script%3E"));
+</script>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Suxue maintained by <a href="https://github.com/gjqt">gjqt</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
+</body>
 </html>
