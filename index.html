@@ -1,16 +1,18 @@
-﻿<!DOCTYPE html>
-<html>
+
+<!DOCTYPE html>
+<html lang="en" manifest="cache.appcache">
 <head>
   <meta charset="utf-8">
   <title>2048苏雪版</title>
 
-  <link href="stylesheets/main.css" rel="stylesheet" type="text/css">
-  <link rel="shortcut icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
+  <link href="style/main.css" rel="stylesheet" type="text/css">
   <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="format-detection" content="telephone=no" />
 
   <meta property="og:title" content="2048 game"/>
   <meta property="og:site_name" content="2048 game"/>
@@ -20,30 +22,35 @@
   <![endif]-->
 </head>
 <body>
-
   <audio id="audio_player1" src="bgm/bgm1.mp3">
   </audio>
   <audio id="audio_player2" src="bgm/bgm2.mp3">
   </audio> 
-  
   <div class="container">
-	<p><strong>安卓版</strong>下载地址：</p>
-	<a href="http://vdisk.weibo.com/s/vqWG6vgnsT27">http://vdisk.weibo.com/s/vqWG6vgnsT27</a>
+	<p style="color:#A20000";>本次更新：新增<strong>自动存档</strong>功能。</p>
+	<p>最新<strong>安卓版</strong>下载地址：</p>
+	<a href="http://vdisk.weibo.com/s/vqWG6vgngbkC">http://vdisk.weibo.com/s/vqWG6vgngbkC</a>
 	<hr>
-    <p>自古二上市以来，古一渐渐淡出人们的视野，谨以此版纪念曾经的苏雪……</p>
 	<p>温馨提示：本版本在特定时期会出现BGM……</p>
+	<hr>
     <div class="heading">
-      <h2 class="title">2048苏雪版</h2>
+      <h1 class="title">2048苏雪版</h1>
+	  <br><br>
       <div class="scores-container">
         <div class="score-container">0</div>
         <div class="best-container">0</div>
       </div>
     </div>
-    <p class="game-intro">合并图片，进入新的场景</p>
+	<br>
+    <div class="above-game">
+      <a class="restart-button">重新开始</a>
+    </div>
+
     <div class="game-container">
       <div class="game-message">
-        <p style="color: #BB4A00"></p>
-        <div class="lower">
+        <p></p>
+		<br>
+        <div class="lower">	        
           <a class="retry-button">轮回</a>
           <div class="score-sharing"></div>
         </div>
@@ -83,30 +90,28 @@
 
     <p class="game-explanation">
       <strong class="important">规则:</strong> 使用 <strong>上下左右键</strong> 移动方块（触屏设备请直接滑动手指），相同的两个图片合并后会变成新的图片。
-    </p><br>
-   
-    <p>2048其他古剑版本：</p>
+    </p>
+    <hr>
+	<p>本游戏其他古剑版本：</p>
 	<p>古剑奇谭一BOSS版：<a href="http://gjqt.github.io">http://gjqt.github.io</a></p>
 	<p style="color:#A20000";>古剑奇谭一BOSS版场景模式（含有大量图片，爪机流量党慎入）：<a href="http://gjqt.github.io/bg">http://gjqt.github.io/bg</a></p>
 	<p>古剑奇谭二BOSS版：<a href="http://gjqt2.github.io">http://gjqt2.github.io</a></p>
     <p>古剑奇谭武器版：<a href="http://bjdc.github.io">http://bjdc.github.io</a></p>
     <p>历代主要人物(图片模式)版：<br><a href="http://gjqt.github.io/mainRole">http://gjqt.github.io/mainRole</a></p><br>
+	<hr>
 	<p>有问题或者建议可以联系 <a href="http://weibo.com/bjdc" target="_blank">拔剑断愁</a></p>
   </div>
 
-  <script src="javascripts/animframe_polyfill.js"></script>
-  <script src="javascripts/keyboard_input_manager.js"></script>
-  <script src="javascripts/html_actuator.js"></script>
-  <script src="javascripts/grid.js"></script>
-  <script src="javascripts/tile.js"></script>
-  <script src="javascripts/local_score_manager.js"></script>
-  <script src="javascripts/game_manager.js"></script>
-  <script src="javascripts/application.js"></script>
-
-<script type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F0e3c8d0a687bea8b39440e15b88cb974' type='text/javascript'%3E%3C/script%3E"));
-</script>
-
+  <script src="js/bind_polyfill.js"></script>
+  <script src="js/classlist_polyfill.js"></script>
+  <script src="js/animframe_polyfill.js"></script>
+  <script src="js/keyboard_input_manager.js"></script>
+  <script src="js/html_actuator.js"></script>
+  <script src="js/grid.js"></script>
+  <script src="js/tile.js"></script>
+  <script src="js/local_storage_manager.js"></script>
+  <script src="js/game_manager.js"></script>
+  <script src="js/application.js"></script>
+  
 </body>
 </html>

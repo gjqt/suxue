@@ -1,4 +1,4 @@
-﻿function HTMLActuator() {
+function HTMLActuator() {
   this.tileContainer    = document.querySelector(".tile-container");
   this.scoreContainer   = document.querySelector(".score-container");
   this.bestContainer    = document.querySelector(".best-container");
@@ -26,10 +26,10 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
     self.updateBestScore(metadata.bestScore);
 
     if (metadata.terminated) {
-      if (metadata.over) {
-        self.message(false); // You lose
-      } else if (metadata.won) {
+      if (metadata.won) {
         self.message(true); // You win!
+      } else if (metadata.over) {
+        self.message(false); // You lose
       }
     }
 
@@ -37,7 +37,7 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
 };
 
 // Continues the game (both restart and keep playing)
-HTMLActuator.prototype.continue = function () {
+HTMLActuator.prototype.continueGame = function () {
   if (typeof ga !== "undefined") {
     ga("send", "event", "game", "restart");
   }
@@ -52,7 +52,7 @@ HTMLActuator.prototype.clearContainer = function (container) {
 };
 
 HTMLActuator.prototype.addTile = function (tile) {
-  var text=new Array(12);
+  var text=new Array(18);
   text[0] = " ";
   text[1] = " ";
   text[2] = " ";
@@ -65,9 +65,11 @@ HTMLActuator.prototype.addTile = function (tile) {
   text[9] = " ";
   text[10] = " ";
   text[11] = " ";
+  
   var self = this;
-  var text2 = function (n) { var r = 0; while (n > 1) r++, n >>= 1; return r; }
 
+  var text2 = function (n) { var r = 0; while (n > 1) r++, n >>= 1; return r; }
+  
   var wrapper   = document.createElement("div");
   var inner     = document.createElement("div");
   var position  = tile.previousPosition || { x: tile.x, y: tile.y };
@@ -154,7 +156,7 @@ HTMLActuator.prototype.message = function (won) {
   mytxt[6]="我愿意做你说过的那样一个人……";
   mytxt[7]="快点……离开……这里……";
   mytxt[8]="我一定会找到重生之法……";
-
+  
   var text3 = function (m) { var r = 0; while (m > 1) r++, m >>= 1; return r; }
   var type    = won ? "game-won" : "game-over";
   var message = won ? "执子之手，与子偕老……" : mytxt[text3(maxscore)-2];
