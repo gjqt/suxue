@@ -51,7 +51,7 @@ h1.title {
   font-weight: bold;
   margin: 0;
   display: block;
-  float: left; }
+  float: none; }
 
 @-webkit-keyframes move-up {
   0% {
